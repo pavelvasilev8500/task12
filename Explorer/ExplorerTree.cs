@@ -131,8 +131,17 @@ namespace Explorer
                 Console.WriteLine(indent + "Can’t access");
                 return;
             }
-
-            catch (DirectoryNotFoundException)
+            catch (ArgumentException)
+            {
+                Console.WriteLine(indent + "Can’t access");
+                return;
+            }
+            catch (PathTooLongException)
+            {
+                Console.WriteLine(indent + "Can’t access");
+                return;
+            }
+            catch (IOException)
             {
                 Console.WriteLine(indent + "Can’t find");
                 return;
